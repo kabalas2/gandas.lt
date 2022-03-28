@@ -8,5 +8,7 @@
             "email": "arnoldas@gandas.lt"
         }
     ],
-    "require": {}
+    "require": {
+        "aura/sqlquery": "^2.7"
+    }
 }
