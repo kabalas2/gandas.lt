@@ -26,7 +26,7 @@ CREATE TABLE `categories` (
   `name` varchar(50) NOT NULL,
   `parent_id` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `categories_products_relations`;
@@ -35,7 +35,7 @@ CREATE TABLE `categories_products_relations` (
   `category_id` int NOT NULL,
   `news_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `comments`;
@@ -45,7 +45,7 @@ CREATE TABLE `comments` (
   `user_id` int NOT NULL,
   `created_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   `news_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `news`;
@@ -60,7 +60,7 @@ CREATE TABLE `news` (
   `slug` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `roles`;
@@ -68,7 +68,7 @@ CREATE TABLE `roles` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `roles` (`id`, `name`) VALUES
 (1,	'author'),
@@ -87,6 +87,6 @@ CREATE TABLE `users` (
   `active` tinyint NOT NULL,
   `created_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;";
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
 
 $conn->query($sql);
