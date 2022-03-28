@@ -1,0 +1,12 @@
+{
+    "name": "arnoldas/gandas.lt",
+    "description": "Naujienu portalas apie nieka",
+    "type": "project",
+    "authors": [
+        {
+            "name": "arnoldas",
+            "email": "arnoldas@gandas.lt"
+        }
+    ],
+    "require": {}
+}

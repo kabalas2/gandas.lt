@@ -1,0 +1,1 @@
+<?php // musu entry poinntas i sistema
