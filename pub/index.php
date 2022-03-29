@@ -4,6 +4,6 @@ include '../config.php';
 include '../vendor/autoload.php';
 
 $router = new Core\Router();
-$louncher = new Core\Launcher();
+$launcher = new Core\Launcher();
 
-$louncher->start($router->getRouteInfo());
+$launcher->start($router->getRouteInfo());
