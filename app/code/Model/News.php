@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Model;
 
-class News
+use Core\ModelAbstract;
+
+class News extends ModelAbstract
 {
     private int $id;
 
@@ -131,5 +133,10 @@ class News
     public function setCreatedAt(string $createdAt): void
     {
         $this->createdAt = $createdAt;
+    }
+
+    public function loadBySlug($slug)
+    {
+        $this->select()->from('news')->where('slug = :slug', ['slug' =>$slug]);
     }
 }
