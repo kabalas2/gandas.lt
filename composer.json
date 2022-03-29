@@ -2,6 +2,11 @@
     "name": "arnoldas/gandas.lt",
     "description": "Naujienu portalas apie nieka",
     "type": "project",
+    "autoload": {
+        "psr-4": {
+            "" : "app/code"
+        }
+    },
     "authors": [
         {
             "name": "arnoldas",
