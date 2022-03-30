@@ -137,6 +137,8 @@ class News extends ModelAbstract
 
     public function loadBySlug($slug)
     {
-        $this->select()->from('news')->where('slug = :slug', ['slug' =>$slug]);
+        $sql = $this->select();
+        $sql->cols(['*'])->from('news')->where('slug = :slug', ['slug' =>$slug]);
+        $this->db->get($sql);
     }
 }
