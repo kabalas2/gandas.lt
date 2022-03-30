@@ -10,7 +10,7 @@ class DB
     {
 
         try {
-            $this->pdo = new \PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
+            $this->pdo = new \PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
             $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
             echo $e->getMessage();
@@ -20,8 +20,8 @@ class DB
 
     public function get($sql)
     {
-        $sth = $this->pdo->prepare($sql->getStatment());
+        $sth = $this->pdo->prepare($sql->getStatement());
         $sth->execute($sql->getBindValues());
-        return $sth->fetch(PDO::FETCH_ASSOC);
+        return $sth->fetch(\PDO::FETCH_ASSOC);
     }
 }

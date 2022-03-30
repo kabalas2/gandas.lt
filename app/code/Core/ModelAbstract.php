@@ -5,6 +5,7 @@ use Aura\SqlQuery\QueryFactory;
 class ModelAbstract
 {
     protected QueryFactory $queryFactory;
+
     protected DB $db;
 
     public function __construct()
