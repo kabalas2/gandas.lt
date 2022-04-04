@@ -11,4 +11,11 @@ class News extends ControllerAbstract
         $new->loadBySlug($slug);
         echo $this->twig->render('news/single.html', ['new'=> $new]);
     }
+
+    public function all(){
+        $news = new \Model\Collections\News();
+        $news->filter('active', 1);
+        $news->filter('views', 100, '>');
+        echo $this->twig->render('news/all.html', ['news'=> $news->get()]);
+    }
 }

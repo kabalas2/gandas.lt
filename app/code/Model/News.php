@@ -59,6 +59,7 @@ class News extends ModelAbstract
     {
         return $this->authorId;
     }
+
     /**
      * @param int $authorId
      */
@@ -66,6 +67,7 @@ class News extends ModelAbstract
     {
         $this->authorId = $authorId;
     }
+
     /**
      * @return int
      */
@@ -73,6 +75,7 @@ class News extends ModelAbstract
     {
         return $this->active;
     }
+
     /**
      * @param int $active
      */
@@ -85,6 +88,7 @@ class News extends ModelAbstract
     {
         return $this->views;
     }
+
     /**
      * @param int $views
      */
@@ -92,6 +96,7 @@ class News extends ModelAbstract
     {
         $this->views = $views;
     }
+
     /**
      * @return string
      */
@@ -99,6 +104,7 @@ class News extends ModelAbstract
     {
         return $this->slug;
     }
+
     /**
      * @param string $slug
      */
@@ -106,6 +112,7 @@ class News extends ModelAbstract
     {
         $this->slug = $slug;
     }
+
     /**
      * @return string
      */
@@ -113,6 +120,7 @@ class News extends ModelAbstract
     {
         return $this->image;
     }
+
     /**
      * @param string $image
      */
@@ -120,6 +128,7 @@ class News extends ModelAbstract
     {
         $this->image = $image;
     }
+
     /**
      * @return string
      */
@@ -127,6 +136,7 @@ class News extends ModelAbstract
     {
         return $this->createdAt;
     }
+
     /**
      * @param string $createdAt
      */
@@ -135,12 +145,12 @@ class News extends ModelAbstract
         $this->createdAt = $createdAt;
     }
 
-    public function loadBySlug(string $slug) : ?News
+    public function loadBySlug(string $slug): ?News
     {
         $sql = $this->select();
         $sql->cols(['*'])->from('news')->where('slug = :slug');
         $sql->bindValue('slug', $slug);
-        if($rez = $this->db->get($sql)){
+        if ($rez = $this->db->get($sql)) {
             $this->id = $rez['id'];
             $this->title = $rez['title'];
             $this->content = $rez['content'];
@@ -151,9 +161,31 @@ class News extends ModelAbstract
             $this->slug = $rez['slug'];
             $this->image = $rez['image'];
             return $this;
-        }else{
+        } else {
             return null;
         }
 
     }
+
+    public function load($id): ?News
+    {
+        $sql = $this->select();
+        $sql->cols(['*'])->from('news')->where('id = :id');
+        $sql->bindValue('id', $id);
+        if ($rez = $this->db->get($sql)) {
+            $this->id = $rez['id'];
+            $this->title = $rez['title'];
+            $this->content = $rez['content'];
+            $this->authorId = $rez['author_id'];
+            $this->createdAt = $rez['created_at'];
+            $this->active = $rez['active'];
+            $this->views = $rez['views'];
+            $this->slug = $rez['slug'];
+            $this->image = $rez['image'];
+            return $this;
+        } else {
+            return null;
+        }
+    }
+
 }
