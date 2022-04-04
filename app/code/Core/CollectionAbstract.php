@@ -17,7 +17,7 @@ class CollectionAbstract
         $this->queryFactory = new QueryFactory('mysql');
         $this->db = new DB();
         $this->select = $this->queryFactory->newSelect();
-        $this->select->cols(['*'])->from(static::TABLE);
+        $this->select->cols(['id'])->from(static::TABLE);
     }
 
     public function fieldsToSelect(array $fields)

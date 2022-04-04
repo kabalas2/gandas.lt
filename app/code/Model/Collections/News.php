@@ -12,7 +12,6 @@ class News extends CollectionAbstract
 
     public function get(): array
     {
-
         $rez = $this->db->getAll($this->select);
         $news = [];
         if (!empty($rez)) {
@@ -23,6 +22,10 @@ class News extends CollectionAbstract
         }
 
         return $news;
+    }
 
+    public function getArray()
+    {
+        return $this->db->getAll($this->select);
     }
 }

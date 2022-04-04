@@ -15,7 +15,6 @@ class News extends ControllerAbstract
     public function all(){
         $news = new \Model\Collections\News();
         $news->filter('active', 1);
-        $news->filter('views', 100, '>');
         echo $this->twig->render('news/all.html', ['news'=> $news->get()]);
     }
 }
