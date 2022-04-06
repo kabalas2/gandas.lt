@@ -10,7 +10,6 @@ class News extends ModelAbstract
 {
 
     const TABLE = 'news';
-    private int $id;
 
     private string $title;
 

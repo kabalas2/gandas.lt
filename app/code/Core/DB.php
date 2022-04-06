@@ -34,8 +34,10 @@ class DB
 
     public function execute($sql)
     {
+        //echo $sql->getStatement();
         $sth = $this->pdo->prepare($sql->getStatement());
         $sth->execute($sql->getBindValues());
+        print_r($sth->errorInfo());
     }
 
 }

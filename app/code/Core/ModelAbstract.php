@@ -4,6 +4,8 @@ use Aura\SqlQuery\QueryFactory;
 
 class ModelAbstract
 {
+    protected $id;
+
     protected QueryFactory $queryFactory;
 
     protected DB $db;

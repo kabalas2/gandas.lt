@@ -9,7 +9,12 @@
 <h1>Index</h1>
 <p class="important">
     {% for new in news %}
+<div class="new-wrap">
+    <a href="http://127.0.0.1:8000/{{new.slug}}">
+        <img width="200" src="{{new.image}}">
         {{new.title}}
-    {% endfor %}
+    </a>
+</div>
+{% endfor %}
 </p>
 {% endblock %}
