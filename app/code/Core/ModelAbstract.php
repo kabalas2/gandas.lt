@@ -35,6 +35,28 @@ class ModelAbstract
     {
         return $this->queryFactory->newDelete();
     }
+
+    public function save(): void
+    {
+        $this->assignData();
+        if (!isset($this->id)) {
+            $this->create();
+        } else {
+            $this->edit();
+        }
+    }
+    protected function create(): void
+    {
+        $insert = $this->insert();
+        $insert->into(static::TABLE)->cols($this->data);
+        $this->db->execute($insert);
+    }
+    protected function edit(): void
+    {
+        $update = $this->update();
+        $update->table(static::TABLE)->cols($this->data);
+        $this->db->execute($update);
+    }
     
 
 }

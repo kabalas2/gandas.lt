@@ -9,7 +9,7 @@ if (DEBUG_MODE) {
     //error_reporting(E_ALL);
 }
 
-$router = new Core\Router();
-$launcher = new Core\Launcher();
+$router = new \Core\Router();
+$launcher = new \Core\Launcher();
 
 $launcher->start($router->getRouteInfo());

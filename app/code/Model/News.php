@@ -8,6 +8,8 @@ use Core\ModelAbstract;
 
 class News extends ModelAbstract
 {
+
+    const TABLE = 'news';
     private int $id;
 
     private string $title;
@@ -171,6 +173,10 @@ class News extends ModelAbstract
     {
         $sql = $this->select();
         $sql->cols(['*'])->from('news')->where('id = :id');
+
+
+        // echo $sql->getStatement();
+        // SELECT * FROM news WHERE id = :id
         $sql->bindValue('id', $id);
         if ($rez = $this->db->get($sql)) {
             $this->id = $rez['id'];
@@ -186,6 +192,22 @@ class News extends ModelAbstract
         } else {
             return null;
         }
+    }
+
+    protected function assignData(): void
+    {
+
+        $this->data = [
+            'title' => $this->title,
+            'content' => $this->content,
+            'created_at' => $this->createdAt,
+            'author_id' => $this->authorId,
+            'active' => $this->active,
+            'views' => $this->views,
+            'slug' => $this->slug,
+            'image' => $this->image
+        ];
+
     }
 
 }
